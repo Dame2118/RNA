@@ -1,5 +1,5 @@
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "GCAAUACGUAAUCCUAUUGAGCAUAGCCGUUUCAAUGUCAUGUAUUAGGCUUCCAUAACUCGUAUCGGCGACGUU" ; value = "(((((((((.....((((((((......)).))))))..)))))))..))......(((((((....)))).)))" ; name = "5-HT2C_1_75nt" } }
   theme {
     details { value = 5 }
@@ -29,7 +29,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "GCAAUACGUAAUCCUAUUGAGCAUAGCCGUUUCAAUUGCAGCGGCUAUGCUCAAUACCUUCGGAUUAUGUACUGU" ; value = "(((.(((((((((((((((((((((((((((........))))))))))))))))).....)))))))))).)))" ; name = "5-HT2C_2_75nt" } }
   theme {
     details { value = 5 }
@@ -59,7 +59,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "CCUGCCCUCUGAUCUCUGCCUGUUCCUCUGUCCCACAGGGGGCAAAGGCUACGGGUCAGAGAGCGGGGAGGAGG" ; value = "(((.(((((((.(((((((((((.(((.((((((....)))))).)))..))))).)))))).))))).)))))" ; name = "NEIL1_74nt" } }
   theme {
     details { value = 5 }
@@ -81,7 +81,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "AAGGGAUUUUGAGCUUGAUCAAUUGUGGAAAGCUGUCUCUU" ; value = "(((((((....(((((..(((....))).))))))))))))" ; name = "AZIN1_41nt" } }
   theme {
     details { value = 5 }
@@ -103,7 +103,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "GAGCUUGAUCAAUUGUGGAAAGCUGUCUCUUAAGGGAUUUU" ; value = ".(((((..(((....))).)))))(((((....)))))..." ; name = "AZIN1_2_41nt" } }
   theme {
     details { value = 5 }
@@ -125,7 +125,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "UUCCCCACUUGUCAUUAGACGUUCAGUUAGUACCACCAAUGACAAUAUUGGGGAA" ; value = ".((((((.((((((((....((.........))....))))))))...))))))." ; name = "BDF2_55nt" } }
   theme {
     details { value = 5 }
@@ -147,7 +147,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "UCUGUCUACUCACCACAGCCCCCCAGCAUCACUGAGAAUGCUGCCAUGGAUGCUAGAGGGCUACAGGAAGAGCCAGA" ; value = "((((.((..((.....(((((...((((((..((..........))..))))))...)))))....))..)).))))" ; name = "hGLI1_77nt" } }
   theme {
     details { value = 5 }
@@ -169,7 +169,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "ACAGUGCAGUCACCCAUAAAGUAGAAAGCACUACGUAGUGUUUCCUACUUUAUGGAUGAGUGCACUGU" ; value = "((((((((.(((.(((((((((((.(((((((....))))))).))))))))))).))).))))))))" ; name = "PRE_MIRNA142_68nt" } }
   theme {
     details { value = 5 }
@@ -207,7 +207,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "UAUGCAGCAAGGAUGCGAUAUUUCGCCAUGGAGGGGUACCGUGUUUUUGCUGCAUA" ; value = "(((((((((((((((((.((((((........)))))).)))))))))))))))))" ; name = "GluR-B_QR_56nt" } }
   theme {
     details { value = 5 }
@@ -229,7 +229,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "CAUUAAGGUGGGUGGAAUAGUAUAACAAUUGUUAUAGUAUCCCACCUACCCUGAUG" ; value = "(((((.(((((((((.(((.((((((....)))))).))).))))))))).)))))" ; name = "GluR-B_RG_56nt" } }
   theme {
     details { value = 5 }
@@ -251,7 +251,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "CAUUAAGGUGGGUGGUUCGGUAGUCCCAUCCACC" ; value = "......(((((((((..........)))))))))" ; name = "GluR_BRG_15mer_34nt" } }
   theme {
     details { value = 5 }
@@ -273,7 +273,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "CAUUAAGGUGGGUGGUUCGCCACCUACCCUGAUG" ; value = "(((((.(((((((((....))))))))).)))))" ; name = "GluR_BRG_15mer_2_34nt" } }
   theme {
     details { value = 5 }
