@@ -1,0 +1,60 @@
+5-HT2C_1
+>GCAAUACGUAAUCCUAUUGAGCAUAGCCGUUUCAAUGUCAUGUAUUAGGCUUCCAUAACUCGUAUCGGCGACGUU
+(((((((((.....((((((((......)).))))))..)))))))..))......(((((((....)))).)))
+edit site: A_4, A_6, A_16, A_25, A_64 
+
+5-HT2C_2
+>GCAAUACGUAAUCCUAUUGAGCAUAGCCGUUUCAAUUGCAGCGGCUAUGCUCAAUACCUUCGGAUUAUGUACUGU
+ (((.(((((((((((((((((((((((((((........))))))))))))))))).....)))))))))).)))
+edit site: A_4, A_6, A_16, A_25, A_47 
+
+NEIL1
+>CCUGCCCUCUGAUCUCUGCCUGUUCCUCUGUCCCACAGGGGGCAAAGGCUACGGGUCAGAGAGCGGGGAGGAGG
+ (((.(((((((.(((((((((((.(((.((((((....)))))).)))..))))).)))))).))))).)))))
+edit site: A_45
+
+AZIN1
+>AAGGGAUUUUGAGCUUGAUCAAUUGUGGAAAGCUGUCUCUU
+(((((((....(((((..(((....))).))))))))))))
+edit site: A_31
+
+AZIN1_2
+>GAGCUUGAUCAAUUGUGGAAAGCUGUCUCUUAAGGGAUUUU
+.(((((..(((....))).)))))(((((....)))))...
+edit site: A_32
+
+BDF2
+>UUCCCCACUUGUCAUUAGACGUUCAGUUAGUACCACCAAUGACAAUAUUGGGGAA
+ .((((((.((((((((....((.........))....))))))))...)))))).
+edit site: A_17
+
+hGLI1
+>UCUGUCUACUCACCACAGCCCCCCAGCAUCACUGAGAAUGCUGCCAUGGAUGCUAGAGGGCUACAGGAAGAGCCAGA
+((((.((..((.....(((((...((((((..((..........))..))))))...)))))....))..)).))))
+edit site : A_55
+
+PRE_MIRNA142
+>ACAGUGCAGUCACCCAUAAAGUAGAAAGCACUACGUAGUGUUUCCUACUUUAUGGAUGAGUGCACUGU
+((((((((.(((.(((((((((((.(((((((....))))))).))))))))))).))).))))))))
+edit site: A_3, A_18, A_19, A_20, A_23, A_37, A_47, A_52, A_59
+
+
+GluR-B_QR
+>UAUGCAGCAAGGAUGCGAUAUUUCGCCAUGGAGGGGUACCGUGUUUUUGCUGCAUA
+(((((((((((((((((.((((((........)))))).)))))))))))))))))
+edit site:A_6
+
+GluR-B_RG
+>CAUUAAGGUGGGUGGAAUAGUAUAACAAUUGUUAUAGUAUCCCACCUACCCUGAUG
+ (((((.(((((((((.(((.((((((....)))))).))).))))))))).)))))
+edit site: A_6
+
+GluR_BRG_15mer
+>CAUUAAGGUGGGUGGUUCGGUAGUCCCAUCCACC
+......(((((((((..........)))))))))
+edit site : A_6
+
+GluR_BRG_15mer_2
+>CAUUAAGGUGGGUGGUUCGCCACCUACCCUGAUG
+(((((.(((((((((....))))))))).)))))
+edit site: A_6
