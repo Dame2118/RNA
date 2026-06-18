@@ -1,0 +1,42 @@
+GRIA2_Q/R_1
+>UAUGCAGCAAGGAUGCGAUAUUUCGCCAAGCUUGGAGGGGUACCGUGUUUUUGCUGCAUA
+(((((((((((((((((.((((((.(((....))).)))))).)))))))))))))))))
+edit site: A_6
+GRIA2_R/G_1
+>CAUUAAGUGGGUGGGCCACCUACCCUGAUG
+(((((...(((((((...))))))))))))
+edit site: A_6
+GRIA2_R/G_2
+>CAUUAAGUGGGUGGGGUAGUCCCAUCCACC
+......(((((((((.....))))))))).
+edit site: A_6, A_17, A_18, A_19
+GRIK2_Q_R
+>CUCAUGCAGCAAGGUACGGAAACGUACCUUGCUGCAUGAG
+((((((((((((((((((....))))))))))))))))))
+edit site: A_8
+FLNA
+>ACUGUUUCUAGCCUUCAGGUGGAAACACCUGAAGGCUAGAAACAGU
+(((((((((((((((((((((....)))))))))))))))))))))
+edit site : A_17
+MIRROR_1
+>GCUACGGAUCAGUACGUAGCGAAAGCUACGUACCGAUCCGUAGC
+((((((((((.(((((((((....))))))))).))))))))))
+edit site: A_11
+MIRROR_2
+>GGUACGGAUCUACGCUAGGCUCAGUACGAUCCUGAUCGAUGAAAAUCGAUCAGGAUCGUACCGAGCCUAGCGUAGAUCCGUACC
+((((((((((((((((((((((.(((((((((((((((((....))))))))))))))))).))))))))))))))))))))))
+edit site: A_23, A_52
+
+MIRROR_3
+>GGACUGUUUCUAGCCUUCAGGUGUAGGAAACUACACUGAAGGCUAGAAACAGUCC
+((((((((((((((((((((.(((((....)))))))))))))))))))))))))
+edit site : A_19
+
+LEAPER3_FLNA_30bp_AC
+>GGACUGUUUCUAGCCUUCAGGUGUAGCUACGAAAGUAGCUACACCCGAAGGCUAGAAACAGUCC
+((((((((((((((((((((((((((((((....))))))))))))))))))))))))))))))
+edit site : A_19
+LEAPER3_FLNA_50bp_AC_external_bulge
+>GGACUGUUUCUAGCAGGUGUAGCUACGGAUCCGAUCGUACGGAAUCGAUCGAAAGAUCGAUUCCUUCGGUACGAUCGGAUCCGUAGCUACACCCGCUAGAAACAGUCC
+((((((((((((((((((((((((((((((((((((((((((((((((((....))))))))))....))))))))))))))))))))))))))))))))))))))))
+edit site : A_15
