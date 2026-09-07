@@ -1,5 +1,5 @@
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "CUUAUGAAAAUUUCAAGCAGUUCAAGCACUGUGGCUAUCCCUGGCUACACCUUCACAAGCCCGGGGAUGACCACCACCCUACUAGAGACAGUGUUUCACCAUGUCAGCCAGGCUGGUCUUGAACUCCUGACCUCGGGUGAUCUGCCCACCUUGGCCUCCCAAAGUGCUGGGAUUACAGCGUCAUCGGUUAUCUCGCAAAG" ; value = "..................(((((.((((((((((.(((((((((((...........)).))))))))).))))(((((.....(((.(((.((((.((((.(((.....)))))))...))))..)))..))))))))....(((......))).......)))))).)))))...(((.............)))...." ; name = "PODXL_200nt" } }
   theme {
     details { value = 5 }
@@ -21,7 +21,7 @@ rnartist {
 }
 
 rnartist {
-  svg { path = "/home/user/RNA/scripts/out" }
+  svg { path = "out" }
   ss { bn { seq = "CCACUUCGACGCAUCCUGUGGCCACCCCAACAAGCUCGGGACAUGACCAUCUUAUGAAAAUUUCAAGCAGUUCAAGCACUGUGGCUAUCCCUGGCUACACCUUCACAAGCCCGGGGAUGACCACCACCCUACUAGAGACAGUGUUUCACCAUGUCAGCCAGGCUGGUCUUGAACUCCUGACCUCGGGUGAUCUGCCCACCUUGGCCUCCCAAAGUGCUGGGAUUACAGCGUCAUCGGUUAUCUCGCAAAGAACUCAACAGACCUCCAGUCAGAUGCCAGCCAGCUCUACGGCCCCUUCCU" ; value = ".......(((((.......(((((.(((.........))).(((((.....)))))......(((.(.((((((((....((((.(((((((((((...........)).))))))))).))))..........(((((...)))))((((.(((.....)))))))))))))))).)))....(((((.......))))))))))(((((......))))).....)))))...(((.((((.((...((..((....))..))..)).))))))).(((........)))........" ; name = "PODXL_300nt" } }
   theme {
     details { value = 5 }

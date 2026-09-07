@@ -32,7 +32,7 @@ def main():
         label = name
         loc = "\n".join(f"          {p} to {p}" for p in edits)
         out.append(f'''rnartist {{
-  svg {{ path = "{HERE}/out" }}
+  svg {{ path = "out" }}
   ss {{ bn {{ seq = "{s}" ; value = "{db}" ; name = "{label}" }} }}
   theme {{
     details {{ value = 5 }}
