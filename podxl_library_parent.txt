@@ -1,0 +1,9 @@
+PODXL_200nt
+>CUUAUGAAAAUUUCAAGCAGUUCAAGCACUGUGGCUAUCCCUGGCUACACCUUCACAAGCCCGGGGAUGACCACCACCCUACUAGAGACAGUGUUUCACCAUGUCAGCCAGGCUGGUCUUGAACUCCUGACCUCGGGUGAUCUGCCCACCUUGGCCUCCCAAAGUGCUGGGAUUACAGCGUCAUCGGUUAUCUCGCAAAG
+..................(((((.((((((((((.(((((((((((...........)).))))))))).))))(((((.....(((.(((.((((.((((.(((.....)))))))...))))..)))..))))))))....(((......))).......)))))).)))))...(((.............)))....
+edit site: A_98
+
+PODXL_300nt
+>CCACUUCGACGCAUCCUGUGGCCACCCCAACAAGCUCGGGACAUGACCAUCUUAUGAAAAUUUCAAGCAGUUCAAGCACUGUGGCUAUCCCUGGCUACACCUUCACAAGCCCGGGGAUGACCACCACCCUACUAGAGACAGUGUUUCACCAUGUCAGCCAGGCUGGUCUUGAACUCCUGACCUCGGGUGAUCUGCCCACCUUGGCCUCCCAAAGUGCUGGGAUUACAGCGUCAUCGGUUAUCUCGCAAAGAACUCAACAGACCUCCAGUCAGAUGCCAGCCAGCUCUACGGCCCCUUCCU
+.......(((((.......(((((.(((.........))).(((((.....)))))......(((.(.((((((((....((((.(((((((((((...........)).))))))))).))))..........(((((...)))))((((.(((.....)))))))))))))))).)))....(((((.......))))))))))(((((......))))).....)))))...(((.((((.((...((..((....))..))..)).))))))).(((........)))........
+edit site: A_148
