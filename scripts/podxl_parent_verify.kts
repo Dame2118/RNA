@@ -41,3 +41,25 @@ rnartist {
     }
   }
 }
+
+rnartist {
+  svg { path = "out" }
+  ss { bn { seq = "GUUCAAGCACUGUGGCUAUCCCUGGCUACACCUUCACAAGCCCGGGGAUGACCACCACCCUACUAGAGACAGUGUUUCACCAUGUCAGCCAGGCUGGUCUUGAAC" ; value = "(((((((....((((.(((((((((((...........)).))))))))).))))..........(((((...)))))((((.(((.....))))))))))))))" ; name = "PODXL_300nt_G70-C174" } }
+  theme {
+    details { value = 5 }
+    color { type = "N" ; value = "#D9D9D9" }   // all residue shapes neutral grey
+    color { type = "n" ; value = "#222222" }   // all residue letters (ACGU) dark
+    color {                                       // A edit-site shapes -> red
+      type = "N" ; value = "red"
+      location {
+          79 to 79
+      }
+    }
+    color {                                       // edit-site letters -> white for contrast
+      type = "n" ; value = "white"
+      location {
+          79 to 79
+      }
+    }
+  }
+}

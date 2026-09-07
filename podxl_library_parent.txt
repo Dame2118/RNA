@@ -7,3 +7,8 @@ PODXL_300nt
 >CCACUUCGACGCAUCCUGUGGCCACCCCAACAAGCUCGGGACAUGACCAUCUUAUGAAAAUUUCAAGCAGUUCAAGCACUGUGGCUAUCCCUGGCUACACCUUCACAAGCCCGGGGAUGACCACCACCCUACUAGAGACAGUGUUUCACCAUGUCAGCCAGGCUGGUCUUGAACUCCUGACCUCGGGUGAUCUGCCCACCUUGGCCUCCCAAAGUGCUGGGAUUACAGCGUCAUCGGUUAUCUCGCAAAGAACUCAACAGACCUCCAGUCAGAUGCCAGCCAGCUCUACGGCCCCUUCCU
 .......(((((.......(((((.(((.........))).(((((.....)))))......(((.(.((((((((....((((.(((((((((((...........)).))))))))).))))..........(((((...)))))((((.(((.....)))))))))))))))).)))....(((((.......))))))))))(((((......))))).....)))))...(((.((((.((...((..((....))..))..)).))))))).(((........)))........
 edit site: A_148
+
+PODXL_300nt_G70-C174
+>GUUCAAGCACUGUGGCUAUCCCUGGCUACACCUUCACAAGCCCGGGGAUGACCACCACCCUACUAGAGACAGUGUUUCACCAUGUCAGCCAGGCUGGUCUUGAAC
+(((((((....((((.(((((((((((...........)).))))))))).))))..........(((((...)))))((((.(((.....))))))))))))))
+edit site: A_79
