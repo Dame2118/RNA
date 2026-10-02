@@ -204,6 +204,55 @@ def check_class_coverage(rows, rep):
             )
 
 
+def check_unexploited_across(parents_file, rows, rep):
+    """An unpaired edit site often still has a base directly across from it.
+
+    `sequence_variants` only builds `across` variants when the site has a formal
+    dot-bracket partner, so adenosines in internal loops and bulges are skipped
+    even though a nucleotide sits opposite them in the helix — a context ADAR
+    edits routinely. A site in a terminal loop genuinely has nothing opposite;
+    that is geometry, not an omission.
+    """
+    if not parents_file:
+        return
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    try:
+        from generate_gc_library import parse, pair_map
+    except ImportError:
+        return
+
+    present = {r["Parent Structure"] for r in rows}
+    missed = []
+    for name, seq, struct, sites in parse(parents_file):
+        if name not in present:
+            continue
+        P = pair_map(struct)
+        n = len(struct)
+        for s in sites:
+            e = s - 1
+            if e >= n or P[e] != -1:
+                continue                      # paired: across was generated
+            below = next(((i, P[i]) for i in range(e - 1, -1, -1)
+                          if P[i] != -1 and P[i] > e), None)
+            above = next(((i, P[i]) for i in range(e + 1, n)
+                          if P[i] != -1 and P[i] > i and P[i] > e), None)
+            if below is None or above is None:
+                continue                      # terminal loop: nothing opposite
+            opp = [k for k in range(above[1] + 1, below[1]) if P[k] == -1]
+            if opp:
+                bases = ", ".join(f"{seq[k]}{k + 1}" for k in opp)
+                missed.append(f"{name} A{s} (opposite {bases})")
+
+    if missed:
+        rep.advise(
+            f"{len(missed)} edit site(s) have a base across but no 'across' variants",
+            "these sit in an internal loop or bulge, so they have no dot-bracket "
+            "partner and were skipped, although a nucleotide sits opposite them "
+            "in the helix. Define 'across' geometrically to include them: "
+            + "; ".join(missed),
+        )
+
+
 def check_balance(rows, rep):
     counts = Counter(r["Parent Structure"] for r in rows)
     if not counts:
@@ -250,6 +299,7 @@ def main():
     check_duplicate_sequences(rows, rep)
     check_noop_mutations(rows, rep)
     check_barcodes(oligo_specs, rep)
+    check_unexploited_across(args.parents, rows, rep)
     check_class_coverage(rows, rep)
     check_balance(rows, rep)
     check_gc_spread(rows, rep)
