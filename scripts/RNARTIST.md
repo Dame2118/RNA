@@ -38,11 +38,32 @@ shasum -a 256 rnartistcore-0.4.8-jar-with-dependencies.jar
 # expect: cd08603bd718455f428cc9c07387023a5c5d96c88768f43eb276dbca235788b8
 ```
 
-Sanity check — prints usage:
+Sanity check — render a tiny hairpin:
 
 ```bash
-java -jar ~/tools/rnartistcore-0.4.8-jar-with-dependencies.jar
+mkdir -p ~/tools/rnatest && cd ~/tools/rnatest
+printf '>test\nGGGAAACCC\n(((...)))\n' > test.vienna
+java -jar ~/tools/rnartistcore-0.4.8-jar-with-dependencies.jar -f ~/tools/rnatest/test.vienna
+ls    # expect test.kts, test.png, test.vienna
 ```
+
+> **Always pass RNArtistCore an absolute path.** Relative paths are broken in
+> 0.4.8, in two different ways:
+>
+> - a bare filename (`-f test.vienna`) crashes immediately with
+>   `NullPointerException: getParentFile(...) must not be null` — it calls
+>   `getParentFile()` on your argument, and a bare name has no parent;
+> - a `./` path (`-f ./test.vienna`) gets past that, then resolves against the
+>   wrong directory and dies with `FileNotFoundException` on a path like
+>   `/Users/you/tools/./test.vienna`.
+>
+> `gen_rnartist_parents.py` builds absolute paths for the Vienna file and the
+> output directory, so it is unaffected. This only bites when driving the jar
+> by hand.
+
+On JDK 21+ you will also see several `WARNING: ... sun.misc.Unsafe ...` lines
+from Kotlin's bundled IntelliJ libraries. They are harmless deprecation notices,
+not errors — the render still succeeds.
 
 ## 3. Render the parents
 
