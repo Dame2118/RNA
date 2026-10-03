@@ -11,15 +11,39 @@ import io.github.fjossinet.rnartist.core.*
           value = 5
        }
        color {
-          value = "#E8E8E8"
-          type = "N"
+          value = "#4A3AA7"
+          type = "A"
        }
        color {
-          value = "#222222"
-          type = "n"
+          value = "#FFFFFF"
+          type = "a"
        }
        color {
-          value = "#D62728"
+          value = "#EDA100"
+          type = "U"
+       }
+       color {
+          value = "#1A1A1A"
+          type = "u"
+       }
+       color {
+          value = "#2A78D6"
+          type = "G"
+       }
+       color {
+          value = "#FFFFFF"
+          type = "g"
+       }
+       color {
+          value = "#1BAF7A"
+          type = "C"
+       }
+       color {
+          value = "#1A1A1A"
+          type = "c"
+       }
+       color {
+          value = "#E34948"
           type = "N"
           location {
              4 to 4

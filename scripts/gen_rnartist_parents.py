@@ -39,9 +39,29 @@ SETS = {
 
 NEUTRAL_SHAPE = "#E8E8E8"
 NEUTRAL_LETTER = "#222222"
-EDIT_SHAPE = "#D62728"
+EDIT_SHAPE = "#E34948"
 EDIT_LETTER = "#FFFFFF"
 DETAILS = 5
+
+# Per-base palette for --color-bases: {base: (shape, letter)}.
+#
+# Four base hues plus the reserved edit-site red are five colours that appear
+# adjacent to each other in arbitrary combinations, so they were chosen against
+# the all-pairs criteria rather than by eye. This set clears the lightness band,
+# the chroma floor and the normal-vision separation floor (worst pair
+# violet/blue, dE 16.3). Red/aqua sits at dE 6.9 under deuteranopia, inside the
+# floor band that is permitted only with secondary encoding — satisfied here
+# because every residue is drawn with its own letter.
+#
+# Magenta in place of violet or aqua fails outright: magenta/red is dE 13.2 to
+# normal vision, under the floor of 15. Letters are white on the two dark hues
+# and near-black on the two light ones.
+BASE_COLORS = {
+    "A": ("#4A3AA7", "#FFFFFF"),   # violet — maximally unlike the edit-site red
+    "U": ("#EDA100", "#1A1A1A"),   # yellow
+    "G": ("#2A78D6", "#FFFFFF"),   # blue
+    "C": ("#1BAF7A", "#1A1A1A"),   # aqua
+}
 
 
 def contributing(csv_names):
@@ -64,8 +84,34 @@ def write_vienna(path, name, seq, struct):
         f.write(f">{name}\n{seq}\n{struct}\n")
 
 
-def write_script(path, vienna_path, out_dir, sites):
+def base_palette_block():
+    """Per-base colours, written before the edit-site block so red overrides."""
+    out = []
+    for base, (shape, letter) in BASE_COLORS.items():
+        out.append(f'''    color {{
+      type = "{base}"
+      value = "{shape}"
+    }}
+    color {{
+      type = "{base.lower()}"
+      value = "{letter}"
+    }}''')
+    return "\n".join(out)
+
+
+def write_script(path, vienna_path, out_dir, sites, color_bases=False):
     locs = "\n".join(f"          {s} to {s}" for s in sites)
+    if color_bases:
+        base_block = base_palette_block()
+    else:
+        base_block = f'''    color {{
+      type = "N"
+      value = "{NEUTRAL_SHAPE}"
+    }}
+    color {{
+      type = "n"
+      value = "{NEUTRAL_LETTER}"
+    }}'''
     with open(path, "w") as f:
         f.write(f'''import io.github.fjossinet.rnartist.core.*
 
@@ -79,14 +125,7 @@ rnartist {{
     details {{
       value = {DETAILS}
     }}
-    color {{
-      type = "N"
-      value = "{NEUTRAL_SHAPE}"
-    }}
-    color {{
-      type = "n"
-      value = "{NEUTRAL_LETTER}"
-    }}
+{base_block}
     color {{
       type = "N"
       value = "{EDIT_SHAPE}"
@@ -118,6 +157,9 @@ def main():
     ap.add_argument("--jar", required=True, help="rnartistcore jar-with-dependencies")
     ap.add_argument("--out", default=os.path.join(HERE, "rnartist"))
     ap.add_argument("--only", choices=sorted(SETS), help="render one set only")
+    ap.add_argument("--color-bases", action="store_true",
+                    help="colour A/U/G/C individually instead of neutral grey; "
+                         "edit sites stay red")
     ap.add_argument("--timeout", type=int, default=600)
     args = ap.parse_args()
 
@@ -145,7 +187,7 @@ def main():
             vienna = os.path.join(out_dir, f"{stem}.vienna")
             script = os.path.join(out_dir, f"{stem}.kts")
             write_vienna(vienna, stem, seq, struct)
-            write_script(script, vienna, out_dir, sites)
+            write_script(script, vienna, out_dir, sites, args.color_bases)
 
             r = subprocess.run(["java", "-jar", jar, script],
                                capture_output=True, text=True, timeout=args.timeout)
