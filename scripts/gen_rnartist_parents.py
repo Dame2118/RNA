@@ -45,25 +45,24 @@ DETAILS = 5
 
 # Per-base palette for --color-bases: {base: (shape, letter)}.
 #
-# A cool ramp — teal, blue, violet, orchid — chosen so the warm edit-site red
-# reads as a different kind of thing rather than another base. These were found
-# by searching the OKLCH space against the all-pairs separation criteria, not by
-# eye: a strictly cool four-hue set cannot pass, because cyan sits too close to
-# both teal and blue (best cool-only candidate reaches dE 13.4, under the floor
-# of 15). Letting one hue reach orchid at 325 degrees clears it with margin.
+# Chosen for maximum distinguishability rather than for a mood. Found by
+# searching OKLCH space against the all-pairs separation criteria, with two
+# constraints: no base may sit within 40 degrees of the edit-site red's hue, so
+# the target can never be mistaken for an ordinary residue; and the four hue
+# families stay at least 35 degrees apart.
 #
-# Worst pair is orchid/violet, dE 17.2 to normal vision and 7.9 under
-# protanopia — the latter inside the band that is permitted with secondary
-# encoding, which the per-residue letters supply. All five clear 3:1 contrast
-# against a white surface, so no relief treatment is needed.
+# Every check passes outright, no warnings: worst pair is 10.0 under protanopia
+# (clear of the 8 target, so it does not lean on secondary encoding) and 19.1 to
+# normal vision (floor 15). All five colours clear 3:1 contrast on white.
 #
-# Bases are assigned so duplex partners are far apart in hue: A/U are 120
-# degrees apart and G/C are 80, which keeps base pairs legible across a rung.
+# Bases are assigned so duplex partners separate in hue: A/U are 120 degrees
+# apart and G/C are 80, keeping base pairs legible across a rung. A is teal,
+# the farthest hue from red, so an edit site reads as a maximal change.
 BASE_COLORS = {
-    "A": ("#5844BC", "#FFFFFF"),   # violet — farthest from the edit-site red
-    "U": ("#19966E", "#FFFFFF"),   # teal
-    "G": ("#1899EC", "#FFFFFF"),   # blue
-    "C": ("#B352BA", "#FFFFFF"),   # orchid
+    "A": ("#14907A", "#FFFFFF"),   # teal — farthest from the edit-site red
+    "U": ("#831FFB", "#FFFFFF"),   # violet
+    "G": ("#3792FD", "#FFFFFF"),   # blue
+    "C": ("#9B1589", "#FFFFFF"),   # magenta
 }
 
 
