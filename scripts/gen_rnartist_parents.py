@@ -45,22 +45,25 @@ DETAILS = 5
 
 # Per-base palette for --color-bases: {base: (shape, letter)}.
 #
-# Four base hues plus the reserved edit-site red are five colours that appear
-# adjacent to each other in arbitrary combinations, so they were chosen against
-# the all-pairs criteria rather than by eye. This set clears the lightness band,
-# the chroma floor and the normal-vision separation floor (worst pair
-# violet/blue, dE 16.3). Red/aqua sits at dE 6.9 under deuteranopia, inside the
-# floor band that is permitted only with secondary encoding — satisfied here
-# because every residue is drawn with its own letter.
+# A cool ramp — teal, blue, violet, orchid — chosen so the warm edit-site red
+# reads as a different kind of thing rather than another base. These were found
+# by searching the OKLCH space against the all-pairs separation criteria, not by
+# eye: a strictly cool four-hue set cannot pass, because cyan sits too close to
+# both teal and blue (best cool-only candidate reaches dE 13.4, under the floor
+# of 15). Letting one hue reach orchid at 325 degrees clears it with margin.
 #
-# Magenta in place of violet or aqua fails outright: magenta/red is dE 13.2 to
-# normal vision, under the floor of 15. Letters are white on the two dark hues
-# and near-black on the two light ones.
+# Worst pair is orchid/violet, dE 17.2 to normal vision and 7.9 under
+# protanopia — the latter inside the band that is permitted with secondary
+# encoding, which the per-residue letters supply. All five clear 3:1 contrast
+# against a white surface, so no relief treatment is needed.
+#
+# Bases are assigned so duplex partners are far apart in hue: A/U are 120
+# degrees apart and G/C are 80, which keeps base pairs legible across a rung.
 BASE_COLORS = {
-    "A": ("#4A3AA7", "#FFFFFF"),   # violet — maximally unlike the edit-site red
-    "U": ("#EDA100", "#1A1A1A"),   # yellow
-    "G": ("#2A78D6", "#FFFFFF"),   # blue
-    "C": ("#1BAF7A", "#1A1A1A"),   # aqua
+    "A": ("#5844BC", "#FFFFFF"),   # violet — farthest from the edit-site red
+    "U": ("#19966E", "#FFFFFF"),   # teal
+    "G": ("#1899EC", "#FFFFFF"),   # blue
+    "C": ("#B352BA", "#FFFFFF"),   # orchid
 }
 
 

@@ -11,7 +11,7 @@ import io.github.fjossinet.rnartist.core.*
           value = 5
        }
        color {
-          value = "#4A3AA7"
+          value = "#5844BC"
           type = "A"
        }
        color {
@@ -19,15 +19,15 @@ import io.github.fjossinet.rnartist.core.*
           type = "a"
        }
        color {
-          value = "#EDA100"
+          value = "#19966E"
           type = "U"
        }
        color {
-          value = "#1A1A1A"
+          value = "#FFFFFF"
           type = "u"
        }
        color {
-          value = "#2A78D6"
+          value = "#1899EC"
           type = "G"
        }
        color {
@@ -35,11 +35,11 @@ import io.github.fjossinet.rnartist.core.*
           type = "g"
        }
        color {
-          value = "#1BAF7A"
+          value = "#B352BA"
           type = "C"
        }
        color {
-          value = "#1A1A1A"
+          value = "#FFFFFF"
           type = "c"
        }
        color {
