@@ -47,19 +47,24 @@ java -jar ~/tools/rnartistcore-0.4.8-jar-with-dependencies.jar -f ~/tools/rnates
 ls    # expect test.kts, test.png, test.vienna
 ```
 
-> **Always pass RNArtistCore an absolute path.** Relative paths are broken in
-> 0.4.8, in two different ways:
+> **Always pass RNArtistCore an absolute path.** Two different things bite you
+> otherwise:
 >
-> - a bare filename (`-f test.vienna`) crashes immediately with
->   `NullPointerException: getParentFile(...) must not be null` — it calls
->   `getParentFile()` on your argument, and a bare name has no parent;
-> - a `./` path (`-f ./test.vienna`) gets past that, then resolves against the
->   wrong directory and dies with `FileNotFoundException` on a path like
->   `/Users/you/tools/./test.vienna`.
+> - **Relative paths resolve against the jar, not your shell.** This is
+>   documented behaviour, not a bug: "if a path doesn't start with `/`
+>   (Linux/MacOS) or `[A-Z]:/` (Windows), it is considered as a relative path
+>   (meaning that it is added to the absolute path of the rnartistcore jar file
+>   used to run the script)". So with the jar in `~/tools/`,
+>   `-f ./test.vienna` looks for `/Users/you/tools/./test.vienna` no matter
+>   which directory you are standing in, and fails with `FileNotFoundException`.
+> - **A bare filename crashes outright** — `-f test.vienna` throws
+>   `NullPointerException: getParentFile(...) must not be null`, because it
+>   calls `getParentFile()` on your argument and a bare name has no parent.
+>   That one does look like a genuine bug.
 >
-> `gen_rnartist_parents.py` builds absolute paths for the Vienna file and the
-> output directory, so it is unaffected. This only bites when driving the jar
-> by hand.
+> The same rule applies to `path` inside `svg {}` and `png {}` blocks, and to
+> `file` inside `vienna {}`. `gen_rnartist_parents.py` writes absolute paths
+> everywhere, so it is unaffected; this only bites when driving the jar by hand.
 
 On JDK 21+ you will also see several `WARNING: ... sun.misc.Unsafe ...` lines
 from Kotlin's bundled IntelliJ libraries. They are harmless deprecation notices,
@@ -140,3 +145,75 @@ bar, that is what it is — delete the `<defs>` block and everything after it.
 
 That legend exists because RNArtistCore can colour residues by reactivity data,
 which is directly useful once DMS-MaPseq reads are in hand.
+
+---
+
+## DSL cheat sheet
+
+Full reference: <https://github.com/fjossinet/RNArtistCore> (the README is the
+manual). Worked examples: `scripts/readme_plots.kts` in that repo — ~30
+complete `rnartist { }` blocks.
+
+### Block order matters
+
+```
+rnartist {
+  svg { }      // or png { } — at least one required
+  ss { }       // required
+  data { }     // MUST come before theme and layout
+  theme { }
+  layout { }
+}
+```
+
+Only one `theme`, one `layout` and one `data` per `rnartist` block.
+
+### Colour targets
+
+`type` selects what gets painted. **Uppercase = the residue shape, lowercase =
+the letter inside it.**
+
+| `type` | Paints |
+|---|---|
+| `N` / `n` | every residue shape / letter |
+| `A` `U` `G` `C` | that base's shape |
+| `a` `u` `g` `c` | that base's letter |
+
+`value` takes a hex string (`"#D62728"`) or a CSS name (`"darkgreen"`). Add a
+`location { }` block to restrict it to given positions:
+
+```
+color {
+  type = "N"
+  value = "#D62728"
+  location {
+    17 to 17
+  }
+}
+```
+
+That is exactly how `gen_rnartist_parents.py` marks edit sites.
+
+### Detail levels
+
+`details { value = 1..5 }` — 1 is a bare backbone outline, 5 draws every
+residue with its letter. We use 5.
+
+### Named schemes
+
+Instead of individual `color` blocks, `scheme { value = "Midnight Paradise" }`
+applies one of 18 built-in palettes. Quickest way to try a different look: swap
+the whole colour section of one `.kts` for a `scheme` line and re-run it.
+
+### Layout
+
+`layout { branch { location { } ; value = <degrees> } }` rotates a branch when
+helices collide. RNArtistCore computes a non-overlapping layout itself and
+writes it into the per-2D `.kts` it generates — so if a molecule looks tangled,
+re-run its own generated script rather than hand-tuning angles.
+
+### Linking DMS reactivity (for later)
+
+The `data` element attaches a value per residue and colours by gradient, with
+`lt` / `gt` / `between` filters. Values can be listed inline or loaded from an
+external file. Remember `data` must precede `theme`.
