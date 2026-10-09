@@ -223,22 +223,32 @@ def check_unexploited_across(parents_file, rows, rep):
 
     present = {r["Parent Structure"] for r in rows}
     missed = []
+
+    def opposite(seq, struct, P, e):
+        """Residue(s) facing e across the helix.
+
+        Takes the nearest paired residue on each side of e and looks at the gap
+        between their partners. This works whichever strand of the helix the
+        edit site sits on — an earlier version assumed the 5' strand and
+        silently reported "terminal loop" for sites on the 3' strand.
+        """
+        n = len(struct)
+        l = next((i for i in range(e - 1, -1, -1) if P[i] != -1), None)
+        r = next((i for i in range(e + 1, n) if P[i] != -1), None)
+        if l is None or r is None:
+            return []                       # dangling end, nothing across
+        lo, hi = sorted((P[l], P[r]))
+        return [k for k in range(lo + 1, hi) if P[k] == -1]
+
     for name, seq, struct, sites in parse(parents_file):
         if name not in present:
             continue
         P = pair_map(struct)
-        n = len(struct)
         for s in sites:
             e = s - 1
-            if e >= n or P[e] != -1:
-                continue                      # paired: across was generated
-            below = next(((i, P[i]) for i in range(e - 1, -1, -1)
-                          if P[i] != -1 and P[i] > e), None)
-            above = next(((i, P[i]) for i in range(e + 1, n)
-                          if P[i] != -1 and P[i] > i and P[i] > e), None)
-            if below is None or above is None:
-                continue                      # terminal loop: nothing opposite
-            opp = [k for k in range(above[1] + 1, below[1]) if P[k] == -1]
+            if e >= len(struct) or P[e] != -1:
+                continue                    # paired: across variants were built
+            opp = opposite(seq, struct, P, e)
             if opp:
                 bases = ", ".join(f"{seq[k]}{k + 1}" for k in opp)
                 missed.append(f"{name} A{s} (opposite {bases})")
