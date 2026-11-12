@@ -2,3 +2,6 @@ __pycache__/
 
 # RNArtistCore fat jar (66 MB) — fetched per scripts/RNARTIST.md, not vendored
 rnartistcore-*.jar
+
+# Delivery bundles of scripts/rnartist/ — regenerate with zip, do not commit
+rnartist_*_parents.zip
